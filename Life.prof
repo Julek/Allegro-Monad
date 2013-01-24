@@ -1,0 +1,157 @@
+	Mon Jan 21 13:36 2013 Time and Allocation Profiling Report  (Final)
+
+	   Life +RTS -p -N -RTS input.txt
+
+	total time  =        0.04 secs   (39 ticks @ 1000 us, 1 processor)
+	total alloc =  18,144,656 bytes  (excludes profiling overheads)
+
+COST CENTRE       MODULE                                %time %alloc
+
+MAIN              MAIN                                   66.7   28.4
+lookup.lookup'.go Data.HashTable.Internal.Linear.Bucket  12.8   44.5
+lookup            Data.HashTable.Internal.Linear.Bucket   7.7    2.4
+readArray         Data.HashTable.Internal.Array           5.1   12.6
+delete            Data.HashTable.Internal.Linear.Bucket   2.6    0.1
+delete.del.go     Data.HashTable.Internal.Linear.Bucket   2.6    3.4
+newSized.lvl      Data.HashTable.ST.Linear                2.6    0.0
+lookup.lookup'    Data.HashTable.Internal.Linear.Bucket   0.0    6.0
+
+
+                                                                                 individual     inherited
+COST CENTRE            MODULE                                  no.     entries  %time %alloc   %time %alloc
+
+MAIN                   MAIN                                     84           0   66.7   28.4   100.0  100.0
+ split                 Data.HashTable.ST.Linear                250           9    0.0    0.0     0.0    0.5
+  split.ht'            Data.HashTable.ST.Linear                277           9    0.0    0.0     0.0    0.0
+  split.f              Data.HashTable.ST.Linear                275           9    0.0    0.0     0.0    0.4
+   primitiveInsert     Data.HashTable.ST.Linear                276         135    0.0    0.1     0.0    0.3
+    primitiveInsert'   Data.HashTable.ST.Linear                279         135    0.0    0.1     0.0    0.1
+     writeArray        Data.HashTable.Internal.Array           283           0    0.0    0.0     0.0    0.0
+     fromKey           Data.HashTable.Internal.UnsafeTricks    282         135    0.0    0.0     0.0    0.0
+     keyIsEmpty        Data.HashTable.Internal.UnsafeTricks    281         135    0.0    0.0     0.0    0.0
+     readArray         Data.HashTable.Internal.Array           280           0    0.0    0.0     0.0    0.0
+    primitiveInsert.h0 Data.HashTable.ST.Linear                278         135    0.0    0.1     0.0    0.1
+  growBucketTo         Data.HashTable.Internal.Linear.Bucket   271           9    0.0    0.0     0.0    0.0
+   emptyWithSize       Data.HashTable.Internal.Linear.Bucket   273           9    0.0    0.0     0.0    0.0
+    newArray           Data.HashTable.Internal.Array           274           0    0.0    0.0     0.0    0.0
+   keyIsEmpty          Data.HashTable.Internal.UnsafeTricks    272           9    0.0    0.0     0.0    0.0
+  split.db2sz'         Data.HashTable.ST.Linear                270           9    0.0    0.0     0.0    0.0
+  split.splitOffs      Data.HashTable.ST.Linear                269           9    0.0    0.0     0.0    0.0
+  split.lvl3           Data.HashTable.ST.Linear                263           5    0.0    0.0     0.0    0.0
+  split.lvl2           Data.HashTable.ST.Linear                261           5    0.0    0.0     0.0    0.0
+  expandBucketArray    Data.HashTable.Internal.Linear.Bucket   260           0    0.0    0.0     0.0    0.0
+   expandArray         Data.HashTable.Internal.Linear.Bucket   262           5    0.0    0.0     0.0    0.0
+    expandArray.cp     Data.HashTable.Internal.Linear.Bucket   265           5    0.0    0.0     0.0    0.0
+     expandArray.cp.go Data.HashTable.Internal.Linear.Bucket   266          17    0.0    0.0     0.0    0.0
+      writeArray       Data.HashTable.Internal.Array           268           0    0.0    0.0     0.0    0.0
+      readArray        Data.HashTable.Internal.Array           267           0    0.0    0.0     0.0    0.0
+    newArray           Data.HashTable.Internal.Array           264           0    0.0    0.0     0.0    0.0
+  writeArray           Data.HashTable.Internal.Array           258           0    0.0    0.0     0.0    0.0
+  emptyWithSize        Data.HashTable.Internal.Linear.Bucket   256           9    0.0    0.0     0.0    0.0
+   newArray            Data.HashTable.Internal.Array           257           0    0.0    0.0     0.0    0.0
+  fromKey              Data.HashTable.Internal.UnsafeTricks    255          18    0.0    0.0     0.0    0.0
+  _highwater           Data.HashTable.Internal.Linear.Bucket   254           9    0.0    0.0     0.0    0.0
+  keyIsEmpty           Data.HashTable.Internal.UnsafeTricks    253          27    0.0    0.0     0.0    0.0
+  readArray            Data.HashTable.Internal.Array           252           0    0.0    0.0     0.0    0.0
+  split.lvl1           Data.HashTable.ST.Linear                251           9    0.0    0.0     0.0    0.0
+ newSized              Data.HashTable.ST.Linear                238          20    0.0    0.0     2.6    0.1
+  newRef               Data.HashTable.ST.Linear                249           0    0.0    0.0     0.0    0.0
+  newSized.lvl         Data.HashTable.ST.Linear                246          20    2.6    0.0     2.6    0.0
+   log2                Data.HashTable.Internal.Utils           247          20    0.0    0.0     0.0    0.0
+    log2.go            Data.HashTable.Internal.Utils           248          54    0.0    0.0     0.0    0.0
+  newSized.k           Data.HashTable.ST.Linear                242          20    0.0    0.1     0.0    0.1
+  newSized.sz          Data.HashTable.ST.Linear                241          20    0.0    0.0     0.0    0.0
+  newBucketArray       Data.HashTable.Internal.Linear.Bucket   239          20    0.0    0.0     0.0    0.0
+   newArray            Data.HashTable.Internal.Array           240           0    0.0    0.0     0.0    0.0
+ lookup.lookup'        Data.HashTable.Internal.Linear.Bucket   233           0    0.0    6.0    17.9   61.2
+  lookup.lookup'.go    Data.HashTable.Internal.Linear.Bucket   234       84895   12.8   44.5    17.9   55.3
+   readArray           Data.HashTable.Internal.Array           235           0    5.1   10.7     5.1   10.7
+ lookup                Data.HashTable.Internal.Linear.Bucket   229        9009    7.7    2.4     7.7    2.4
+  lookup.lookup'       Data.HashTable.Internal.Linear.Bucket   232        9009    0.0    0.0     0.0    0.0
+  fromKey              Data.HashTable.Internal.UnsafeTricks    231        9009    0.0    0.0     0.0    0.0
+  keyIsEmpty           Data.HashTable.Internal.UnsafeTricks    230        9009    0.0    0.0     0.0    0.0
+ lookup                Data.HashTable.ST.Linear                228        9009    0.0    0.0     0.0    0.0
+ foldM                 Data.HashTable.ST.Linear                221          41    0.0    0.0     0.0    0.5
+  foldM.work           Data.HashTable.ST.Linear                223          41    0.0    0.0     0.0    0.5
+   foldM.work.go       Data.HashTable.ST.Linear                224         161    0.0    0.3     0.0    0.5
+    fromKey            Data.HashTable.Internal.UnsafeTricks    227          65    0.0    0.0     0.0    0.0
+    keyIsEmpty         Data.HashTable.Internal.UnsafeTricks    226         120    0.0    0.0     0.0    0.0
+    readArray          Data.HashTable.Internal.Array           225           0    0.0    0.2     0.0    0.2
+  readRef              Data.HashTable.ST.Linear                222          41    0.0    0.0     0.0    0.0
+ growBucketTo.values   Data.HashTable.Internal.Linear.Bucket   219          58    0.0    0.0     0.0    0.0
+ _values               Data.HashTable.Internal.Linear.Bucket   218          58    0.0    0.0     0.0    0.0
+ expandArray.cp        Data.HashTable.Internal.Linear.Bucket   214         116    0.0    0.1     0.0    0.7
+  expandArray.cp.go    Data.HashTable.Internal.Linear.Bucket   215         946    0.0    0.4     0.0    0.7
+   writeArray          Data.HashTable.Internal.Array           217           0    0.0    0.1     0.0    0.1
+   readArray           Data.HashTable.Internal.Array           216           0    0.0    0.1     0.0    0.1
+ expandArray           Data.HashTable.Internal.Linear.Bucket   213         116    0.0    0.0     0.0    0.0
+ growBucketTo.keys     Data.HashTable.Internal.Linear.Bucket   212          58    0.0    0.0     0.0    0.0
+ _keys                 Data.HashTable.Internal.Linear.Bucket   211          58    0.0    0.0     0.0    0.0
+ growBucketTo.hwRef    Data.HashTable.Internal.Linear.Bucket   210          58    0.0    0.0     0.0    0.0
+ _highwater            Data.HashTable.Internal.Linear.Bucket   209          58    0.0    0.0     0.0    0.0
+ growBucketTo          Data.HashTable.Internal.Linear.Bucket   203          58    0.0    0.0     0.0    0.0
+  growBucketTo.bucket  Data.HashTable.Internal.Linear.Bucket   208          58    0.0    0.0     0.0    0.0
+  fromKey              Data.HashTable.Internal.UnsafeTricks    207          58    0.0    0.0     0.0    0.0
+  growBucketTo.osz     Data.HashTable.Internal.Linear.Bucket   206          58    0.0    0.0     0.0    0.0
+  _bucketSize          Data.HashTable.Internal.Linear.Bucket   205          58    0.0    0.0     0.0    0.0
+  keyIsEmpty           Data.HashTable.Internal.UnsafeTricks    204          58    0.0    0.0     0.0    0.0
+ fromKey               Data.HashTable.Internal.UnsafeTricks    202         357    0.0    0.0     0.0    0.0
+ writeRef              Data.HashTable.ST.Linear                196         324    0.0    0.0     0.0    0.0
+ checkOverflow         Data.HashTable.ST.Linear                193         324    0.0    0.0     0.0    0.0
+ writeArray            Data.HashTable.Internal.Array           192           0    0.0    0.1     0.0    0.1
+ newArray              Data.HashTable.Internal.Array           189           0    0.0    0.0     0.0    0.0
+ keyIsEmpty            Data.HashTable.Internal.UnsafeTricks    188         324    0.0    0.0     0.0    0.0
+ readArray             Data.HashTable.Internal.Array           187           0    0.0    1.2     0.0    1.2
+ primitiveInsert'      Data.HashTable.ST.Linear                186         324    0.0    0.1     0.0    0.1
+ delete'               Data.HashTable.ST.Linear                180         324    0.0    0.0     5.1    4.3
+  delete               Data.HashTable.Internal.Linear.Bucket   183         324    2.6    0.1     5.1    4.2
+   delete.del          Data.HashTable.Internal.Linear.Bucket   199         299    0.0    0.5     2.6    4.1
+    delete.del.go      Data.HashTable.Internal.Linear.Bucket   200        2375    2.6    3.4     2.6    3.7
+     readArray         Data.HashTable.Internal.Array           201           0    0.0    0.3     0.0    0.3
+   fromKey             Data.HashTable.Internal.UnsafeTricks    198         299    0.0    0.0     0.0    0.0
+   keyIsEmpty          Data.HashTable.Internal.UnsafeTricks    184         324    0.0    0.0     0.0    0.0
+  readArray            Data.HashTable.Internal.Array           182           0    0.0    0.0     0.0    0.0
+ readRef               Data.HashTable.ST.Linear                179        9333    0.0    0.0     0.0    0.0
+ insert                Data.HashTable.ST.Linear                178         324    0.0    0.0     0.0    0.0
+ new                   Data.HashTable.ST.Linear                170           0    0.0    0.0     0.0    0.0
+  newRef               Data.HashTable.ST.Linear                177           0    0.0    0.0     0.0    0.0
+  newBucketArray       Data.HashTable.Internal.Linear.Bucket   174           0    0.0    0.0     0.0    0.0
+   newArray            Data.HashTable.Internal.Array           175           0    0.0    0.0     0.0    0.0
+ CAF                   Life                                    166           0    0.0    0.1     0.0    0.1
+ CAF                   Data.HashTable.ST.Linear                163           0    0.0    0.0     0.0    0.0
+  newSized             Data.HashTable.ST.Linear                244           0    0.0    0.0     0.0    0.0
+   newSized.k          Data.HashTable.ST.Linear                245           0    0.0    0.0     0.0    0.0
+  fillFactor           Data.HashTable.ST.Linear                243           1    0.0    0.0     0.0    0.0
+  newSized             Data.HashTable.ST.Linear                237           1    0.0    0.0     0.0    0.0
+  foldM                Data.HashTable.ST.Linear                220           1    0.0    0.0     0.0    0.0
+  bucketSplitSize      Data.HashTable.ST.Linear                194           1    0.0    0.0     0.0    0.0
+  newRef               Data.HashTable.ST.Linear                176           1    0.0    0.0     0.0    0.0
+  new                  Data.HashTable.ST.Linear                169           1    0.0    0.0     0.0    0.0
+   newBucketArray      Data.HashTable.Internal.Linear.Bucket   171           1    0.0    0.0     0.0    0.0
+    newArray           Data.HashTable.Internal.Array           173           0    0.0    0.0     0.0    0.0
+  new                  Data.HashTable.ST.Linear                168           1    0.0    0.0     0.0    0.0
+ CAF                   Data.HashTable.Internal.Array           162           0    0.0    0.0     0.0    0.0
+  writeArray           Data.HashTable.Internal.Array           191           1    0.0    0.0     0.0    0.0
+  readArray            Data.HashTable.Internal.Array           181           1    0.0    0.0     0.0    0.0
+  newArray             Data.HashTable.Internal.Array           172           1    0.0    0.0     0.0    0.0
+ CAF                   Data.HashTable.Internal.UnsafeTricks    161           0    0.0    0.0     0.0    0.0
+  toKey                Data.HashTable.Internal.UnsafeTricks    197           1    0.0    0.0     0.0    0.0
+  emptyRecord          Data.HashTable.Internal.UnsafeTricks    185           1    0.0    0.0     0.0    0.0
+ CAF                   Data.HashTable.Internal.Linear.Bucket   159           0    0.0    0.0     0.0    0.0
+  expandBucketArray    Data.HashTable.Internal.Linear.Bucket   259           1    0.0    0.0     0.0    0.0
+  bucketSplitSize      Data.HashTable.Internal.Linear.Bucket   195           1    0.0    0.0     0.0    0.0
+  newBucketSize        Data.HashTable.Internal.Linear.Bucket   190           1    0.0    0.0     0.0    0.0
+ CAF                   Data.Hashable.Class                     144           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.IO.Encoding                         135           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.IO.Handle.FD                        133           0    0.0    0.2     0.0    0.2
+ CAF                   Text.Read.Lex                           119           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Event.Thread                        118           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Conc.Signal                         117           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.IO.Encoding.Iconv                   113           0    0.0    0.0     0.0    0.0
+ CAF                   System.Posix.Internals                  110           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.IO.FD                               108           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Event.Control                       105           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Event.EPoll                         100           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Event.Internal                       99           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Event.Clock                          96           0    0.0    0.0     0.0    0.0
+ CAF                   GHC.Integer.Logarithms.Internals         92           0    0.0    0.0     0.0    0.0
